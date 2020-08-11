@@ -9,10 +9,17 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class CardFormComponent implements OnInit {
   cardForm = new FormGroup({
     // below <= don't show any initial value, read by `<input formControlName="name">` in template
-    name: new FormControl('', [Validators.required, Validators.minLength(3)])
+    name: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      // Validators.maxLength(5),
+      // Validators.pattern(/\s/)
+    ])
   });
 
-  constructor() { }
+  constructor() {
+    console.log(this.cardForm.get('name'))
+  }
 
   ngOnInit(): void {
   }
